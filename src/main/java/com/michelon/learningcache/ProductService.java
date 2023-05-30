@@ -1,5 +1,6 @@
 package com.michelon.learningcache;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -19,6 +20,7 @@ public class ProductService {
           put(3L, new Product(3L, "Beans", "Delicious Red beans"));
         }
     };
+    @Cacheable("products")
     Product getById(Long id) {
         System.out.println("Getting products...");
         simulateLatency();
